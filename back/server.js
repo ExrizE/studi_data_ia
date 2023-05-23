@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 const db = require('./db/db');
 const initializeDatabase = require('./db/initialize');
+const path = require('path')
 
 // Import routes
 const expensesRoutes = require('./routes/expenses');
@@ -12,6 +13,9 @@ const authRoutes = require('./routes/auth');
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+const publicPath = path.join(__dirname, '/public');
+app.use(express.static(publicPath));
 
 // For now, let's check if our connection is working
 db.connect()

@@ -220,7 +220,7 @@ export default function Index() {
             </div>
             <div className="w-full px-4 flex-1">
             <select value={selectedDate} onChange={handleDate}>
-              {dates && dates.map((date, index) => (
+              {dates.map((date, index) => (
                 <option key={index} value={date}>{date}</option>
               ))}
             </select>
