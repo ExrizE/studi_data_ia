@@ -1,5 +1,5 @@
 import axios from 'axios';
-const apiUrl = "http://localhost:3300/expenses";
+const apiUrl = "https://studi-data-ia.vercel.app/expenses";
 
 export const getCsv = async (rowCount) => {
     try {

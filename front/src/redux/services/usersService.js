@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { isAccessToken, isRefreshToken } from '../../utils/auth';
 import Cookies from 'js-cookie';
-const apiUrl = "http://localhost:3300/api/auth";
+const apiUrl = "/api/auth";
 
 export const userList = async () => {
     try {
