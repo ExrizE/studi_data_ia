@@ -14,9 +14,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const publicPath = path.join(__dirname, '/public');
-app.use(express.static(publicPath));
-
 // For now, let's check if our connection is working
 db.connect()
   .then(obj => {
