@@ -1,5 +1,5 @@
 import axios from 'axios';
-const apiUrl = "https://golden-line.vercel.app/expenses";
+const apiUrl = "https://goldenline.vercel.app/expenses";
 
 export const expenses = async (date) => {
     try {

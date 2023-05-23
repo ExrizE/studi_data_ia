@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { isAccessToken, isRefreshToken } from '../../utils/auth';
 import Cookies from 'js-cookie';
-const apiUrl = "https://golden-line.vercel.app/api/auth";
+const apiUrl = "https://goldenline.vercel.app/api/auth";
 
 export const userList = async () => {
     try {
