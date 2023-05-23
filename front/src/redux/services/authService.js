@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-const apiUrl = "https://golden-line.vercel.app/api/auth";
+const apiUrl = "/api/auth";
 
 export const login = async (userName, password, deviceId) => {
   const response = await axios.post(`${apiUrl}/login`, { userName, password, deviceId });
