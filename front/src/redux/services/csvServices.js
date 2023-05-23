@@ -1,5 +1,5 @@
 import axios from 'axios';
-const apiUrl = "/expenses";
+const apiUrl = "https://golden-line.vercel.app/expenses";
 
 export const getCsv = async (rowCount) => {
     try {
