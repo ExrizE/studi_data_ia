@@ -6,8 +6,7 @@ const initializeDatabase = async () => {
         CREATE TABLE IF NOT EXISTS refresh_tokens (
             token text PRIMARY KEY,
             user_id int REFERENCES users(id),
-            expiry_date timestamptz,
-            device_id text NOT NULL
+            expiry_date timestamptz
         )
     `;
 
@@ -26,7 +25,7 @@ const initializeDatabase = async () => {
     `;
 
     const createforgotPasswordTable = `
-        CREATE TABLE IF NOT EXISTS users (
+        CREATE TABLE IF NOT EXISTS users_forgot (
             id SERIAL PRIMARY KEY,
             user_id INTEGER REFERENCES users(id),
             token VARCHAR(64) NOT NULL,
@@ -35,22 +34,23 @@ const initializeDatabase = async () => {
     `;
     
     const createClientTableQuery = `
-        CREATE TABLE IF NOT EXISTS Client (
+        CREATE TABLE IF NOT EXISTS client (
             id SERIAL PRIMARY KEY,
             child_nb INTEGER,
             sp_category VARCHAR(255)
-        );
+            );
     `;
 
     const createCollecteTableQuery = `
-        CREATE TABLE IF NOT EXISTS Collecte (
-            id SERIAL PRIMARY KEY,
-            client_id INTEGER,
-            total_basket DECIMAL,
-            category VARCHAR(255),
-            price DECIMAL,
-            FOREIGN KEY (client_id) REFERENCES Client(id)
+        CREATE TABLE IF NOT EXISTS collecte (
+            id serial PRIMARY KEY,
+            client_id integer NOT NULL,
+            total_basket decimal(8,2) NOT NULL,
+            date timestamp NOT NULL,
+            details jsonb,
+            FOREIGN KEY (client_id) REFERENCES client(id)
         );
+        
     `;
     
     db.none(createUsersTable)
